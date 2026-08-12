@@ -1,0 +1,52 @@
+import { useMemo, useState } from 'react'
+import { cn } from '@/lib/cn'
+import { createPlaceholder } from '@/lib/placeholder'
+
+interface SmartImageProps {
+  src?: string
+  alt: string
+  /** Görsel yuklenemezse bu metinden degradeli yer tutucu uretilir. */
+  fallbackSeed: string
+  className?: string
+  loading?: 'lazy' | 'eager'
+}
+
+/**
+ * Kaynak adres boş ya da yüklenemez oldugunda, metinden türetilmiş
+ * SVG yer tutucuya dusen görsel. Boylece kirik resim ikonu hic görünmez.
+ */
+export function SmartImage({ src, alt, fallbackSeed, className, loading = 'lazy' }: SmartImageProps) {
+  const placeholder = useMemo(() => createPlaceholder(fallbackSeed), [fallbackSeed])
+
+  const [source, setSource] = useState(src || placeholder)
+  const [loaded, setLoaded] = useState(false)
+  const [renderedSrc, setRenderedSrc] = useState(src)
+
+  // src değiştiğinde (galeride gezinme, liste sanallastirma) durumu render
+  // sırasında sıfırla - useEffect ile yapmak fazladan bir render turu maliyeti
+  // getirir ve bu, React'in "prop değişince state'i ayarla" önerdiği desendir.
+  if (src !== renderedSrc) {
+    setRenderedSrc(src)
+    setSource(src || placeholder)
+    setLoaded(false)
+  }
+
+  return (
+    <img
+      src={source}
+      alt={alt}
+      loading={loading}
+      decoding="async"
+      onLoad={() => setLoaded(true)}
+      onError={() => {
+        setSource(placeholder)
+        setLoaded(true)
+      }}
+      className={cn(
+        'transition-opacity duration-500',
+        loaded ? 'opacity-100' : 'opacity-0',
+        className,
+      )}
+    />
+  )
+}
