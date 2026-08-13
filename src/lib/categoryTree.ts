@@ -91,7 +91,7 @@ export function getCategoryPath(categories: Category[], categoryId: string): Cat
   return path
 }
 
-/** Ağaçı, girintili <select> seçenekleri için düz listeye açar. */
+/** Ağacı, girintili <select> seçenekleri için düz listeye açar. */
 export function flattenTree(nodes: CategoryNode[]): CategoryNode[] {
   const result: CategoryNode[] = []
   const walk = (list: CategoryNode[]) => {

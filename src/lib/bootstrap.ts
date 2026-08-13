@@ -2,7 +2,7 @@ import { createSeedData } from './seed'
 import { SCHEMA_VERSION, STORAGE_KEYS, clearAll, read, write } from './storage'
 
 /**
- * Depoyu React ağaçı monte edilmeden ÖNCE hazırlar.
+ * Depoyu React ağacı monte edilmeden ÖNCE hazırlar.
  *
  * Tohumlama, parola özetleri için Web Crypto kullandığından asenkrondur.
  * Bunu bir effect içinde yapmak yerine açılışta bir kez çalıştırmak,

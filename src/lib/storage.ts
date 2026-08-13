@@ -21,7 +21,7 @@ export const STORAGE_KEYS = {
 export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS]
 
 /** Tohum verisi değiştiğinde artırılır; eski sürümler sıfırlanıp yeniden tohumlanır. */
-export const SCHEMA_VERSION = 4
+export const SCHEMA_VERSION = 5
 
 /** localStorage kullanılabilir mi? (gizli sekme / kapalı çerez durumları) */
 export function isStorageAvailable(): boolean {

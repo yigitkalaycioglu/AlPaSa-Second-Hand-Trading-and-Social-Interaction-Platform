@@ -24,8 +24,17 @@ function ago(days: number, hours = 0): string {
   return new Date(now - days * DAY - hours * 60 * 60 * 1000).toISOString()
 }
 
-function photo(seed: string): string {
-  return `https://picsum.photos/seed/${seed}/800/600`
+/**
+ * Ürüne uygun demo görseli üretir.
+ *
+ * Adresler Unsplash'in doğrudan görsel uç noktasına gider; her kimlik
+ * indirilip gözle kontrol edilerek ilanla eşleştiği doğrulanmıştır.
+ *
+ * Görsel yüklenemezse SmartImage bileşeni başlıktan türetilmiş SVG
+ * yer tutucuya düşer, yani ağ erişimi olmasa da arayüz bozulmaz.
+ */
+function photo(id: string): string {
+  return `https://images.unsplash.com/${id}?w=800&h=600&fit=crop&q=80`
 }
 
 interface SeedUserSpec {
@@ -146,6 +155,7 @@ interface SeedProductSpec {
   categoryId: string
   sellerId: string
   city: string
+  /** Unsplash foto kimliği (ürünle eşleştiği doğrulanmış). */
   seed: string
   days: number
   views: number
@@ -157,107 +167,107 @@ const PRODUCT_SPECS: SeedProductSpec[] = [
   {
     id: 'prd_macbook', title: 'MacBook Air M1 — 8GB / 256GB',
     description: '2021 model MacBook Air M1. Şarj döngüsü 142, batarya sağlığı %94. Kutusu ve orijinal şarj adaptörü mevcut. Ekranda çizik yok, klavye ve trackpad sorunsuz. Yüksek performanslı bir makineye geçtiğim için satıyorum.',
-    price: 21500, condition: 'Yeni Gibi', categoryId: 'cat_dizustu', sellerId: 'usr_can', city: 'Eskişehir', seed: 'macbookair', days: 2, views: 412, isFeatured: true,
+    price: 21500, condition: 'Yeni Gibi', categoryId: 'cat_dizustu', sellerId: 'usr_can', city: 'Eskişehir', seed: 'photo-1517336714731-489689fd1ca8', days: 2, views: 412, isFeatured: true,
   },
   {
     id: 'prd_ekrankarti', title: 'NVIDIA RTX 3060 Ti 8GB Ekran Kartı',
     description: 'Oyun bilgisayarımda 1,5 yıl kullanıldı, hiç overclock yapılmadı. Termal macunu geçen ay yenilendi. Kutusu duruyor. Test edilerek teslim edilir.',
-    price: 8750, condition: 'İyi', categoryId: 'cat_donanim', sellerId: 'usr_can', city: 'Eskişehir', seed: 'gpucard', days: 5, views: 289,
+    price: 8750, condition: 'İyi', categoryId: 'cat_donanim', sellerId: 'usr_can', city: 'Eskişehir', seed: 'photo-1624701928517-44c8ac49d93c', days: 5, views: 289,
   },
   {
     id: 'prd_iphone', title: 'iPhone 13 128GB — Yıldız Işığı',
     description: 'İkinci el iPhone 13, batarya sağlığı %89. İlk günden beri kılıflı ve ekran koruyuculu kullanıldı. Faturası mevcut. Takas düşünmüyorum.',
-    price: 24900, condition: 'İyi', categoryId: 'cat_telefon', sellerId: 'usr_demo', city: 'Ankara', seed: 'iphone13', days: 1, views: 537, isFeatured: true,
+    price: 24900, condition: 'İyi', categoryId: 'cat_telefon', sellerId: 'usr_demo', city: 'Ankara', seed: 'photo-1510557880182-3d4d3cba35a5', days: 1, views: 537, isFeatured: true,
   },
   {
     id: 'prd_kulaklik', title: 'Sony WH-1000XM4 Kablosuz Kulaklık',
     description: 'Gürültü engelleme özelliği mükemmel çalışıyor. Taşıma kılıfı, kablo ve uçak adaptörü dahil. Kulak yastıkları orijinal ve yıpranmamış durumda.',
-    price: 5400, condition: 'Yeni Gibi', categoryId: 'cat_ses', sellerId: 'usr_demo', city: 'Ankara', seed: 'headphones', days: 8, views: 198,
+    price: 5400, condition: 'Yeni Gibi', categoryId: 'cat_ses', sellerId: 'usr_demo', city: 'Ankara', seed: 'photo-1505740420928-5e560c06d30e', days: 8, views: 198,
   },
   {
     id: 'prd_monitor', title: 'Dell UltraSharp 27" 4K Monitör',
     description: 'Renk kalibrasyonu yapılmış profesyonel monitör. Ölü piksel yok. Stand ve DisplayPort kablosu dahil. Grafik işleriyle uğraşanlar için ideal.',
-    price: 9200, condition: 'İyi', categoryId: 'cat_ses', sellerId: 'usr_can', city: 'Eskişehir', seed: 'monitor4k', days: 14, views: 156,
+    price: 9200, condition: 'İyi', categoryId: 'cat_ses', sellerId: 'usr_can', city: 'Eskişehir', seed: 'photo-1527443224154-c4a3942d3acf', days: 14, views: 156,
   },
   {
     id: 'prd_koltuk', title: 'Vintage Üç Kişilik Kadife Koltuk',
     description: "1970'ler tarzı, yeni döşenmiş kadife koltuk. Ahşap ayakları cilalandı. Leke ve yırtık yok. Nakliye alıcıda, İzmir içi taşıma konusunda yardımcı olabilirim.",
-    price: 12000, condition: 'Yeni Gibi', categoryId: 'cat_mobilya', sellerId: 'usr_elif', city: 'İzmir', seed: 'velvetsofa', days: 3, views: 341, isFeatured: true,
+    price: 12000, condition: 'Yeni Gibi', categoryId: 'cat_mobilya', sellerId: 'usr_elif', city: 'İzmir', seed: 'photo-1555041469-a586c61ea9bc', days: 3, views: 341, isFeatured: true,
   },
   {
-    id: 'prd_masa', title: 'Meşe Ağaçı Çalışma Masası 140x70',
+    id: 'prd_masa', title: 'Meşe Ağacı Çalışma Masası 140x70',
     description: 'Masif meşe, el yapımı çalışma masası. Kablo geçiş deliği ve alt rafı var. Küçük bir daireye taşındığım için satıyorum. Sıfır gibi.',
-    price: 4800, condition: 'İyi', categoryId: 'cat_mobilya', sellerId: 'usr_elif', city: 'İzmir', seed: 'oakdesk', days: 11, views: 174,
+    price: 4800, condition: 'İyi', categoryId: 'cat_mobilya', sellerId: 'usr_elif', city: 'İzmir', seed: 'photo-1594580701468-e5678582b8ce', days: 11, views: 174,
   },
   {
     id: 'prd_buzdolabi', title: 'Bosch No-Frost Buzdolabı 480L',
     description: 'A++ enerji sınıfı, no-frost buzdolabı. 4 yaşında, servis geçmişi temiz. Taşınma nedeniyle satılıyor. Çalışır durumda test edilebilir.',
-    price: 15500, condition: 'İyi', categoryId: 'cat_beyazesya', sellerId: 'usr_elif', city: 'İzmir', seed: 'fridge', days: 20, views: 122,
+    price: 15500, condition: 'İyi', categoryId: 'cat_beyazesya', sellerId: 'usr_elif', city: 'İzmir', seed: 'photo-1536353284924-9220c464e262', days: 20, views: 122,
   },
   {
     id: 'prd_kahve', title: 'Delonghi Espresso Makinesi',
     description: 'Yarı otomatik espresso makinesi, süt köpürtücülü. Kireç çözdürme işlemi düzenli yapıldı. Portafiltre ve tamper dahil.',
-    price: 3200, condition: 'İyi', categoryId: 'cat_mutfak', sellerId: 'usr_demo', city: 'Ankara', seed: 'espresso', days: 6, views: 203,
+    price: 3200, condition: 'İyi', categoryId: 'cat_mutfak', sellerId: 'usr_demo', city: 'Ankara', seed: 'photo-1616388761741-a5936c6f61f6', days: 6, views: 203,
   },
   {
     id: 'prd_klarnet', title: 'Jupiter JCL-700 Sib Klarnet',
     description: 'Öğrenci ve orta seviye için ideal klarnet. Pedleri geçen sezon değiştirildi, ayarları yapıldı. Orijinal çantası, temizlik bezi ve 3 adet kamış hediye.',
-    price: 7800, condition: 'Yeni Gibi', categoryId: 'cat_muzik', sellerId: 'usr_mert', city: 'Bursa', seed: 'clarinet', days: 4, views: 267, isFeatured: true,
+    price: 7800, condition: 'Yeni Gibi', categoryId: 'cat_muzik', sellerId: 'usr_mert', city: 'Bursa', seed: 'photo-1573871665247-2b556aa23460', days: 4, views: 267, isFeatured: true,
   },
   {
     id: 'prd_gitar', title: 'Fender Player Stratocaster Elektro Gitar',
     description: 'Meksika üretimi Player serisi Stratocaster. Setup yapıldı, teller yeni. Gigbag dahil. Gövdede küçük bir çizik dışında kusursuz.',
-    price: 26500, condition: 'İyi', categoryId: 'cat_muzik', sellerId: 'usr_mert', city: 'Bursa', seed: 'stratocaster', days: 9, views: 389,
+    price: 26500, condition: 'İyi', categoryId: 'cat_muzik', sellerId: 'usr_mert', city: 'Bursa', seed: 'photo-1564186763535-ebb21ef5277f', days: 9, views: 389,
   },
   {
     id: 'prd_klavye', title: 'Yamaha P-45 Dijital Piyano 88 Tuş',
     description: 'Çekiçli tuş mekanizmalı dijital piyano. Sehpası ve pedalı dahil. Ev ortamında az kullanıldı, sigara içilmeyen ortam.',
-    price: 14200, condition: 'Yeni Gibi', categoryId: 'cat_muzik', sellerId: 'usr_mert', city: 'Bursa', seed: 'digitalpiano', days: 25, views: 145,
+    price: 14200, condition: 'Yeni Gibi', categoryId: 'cat_muzik', sellerId: 'usr_mert', city: 'Bursa', seed: 'photo-1512733596533-7b00ccf8ebaf', days: 25, views: 145,
   },
   {
     id: 'prd_bisiklet', title: 'Trek Marlin 7 Dağ Bisikleti — M Beden',
     description: 'Hidrolik disk fren, 1x10 vites sistemi. Rotor ve balatalar yeni değiştirildi. Şehir ve patika kullanımına uygun. Pedal ve bidon dahil.',
-    price: 18900, condition: 'İyi', categoryId: 'cat_bisiklet', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'mtbbike', days: 7, views: 312,
+    price: 18900, condition: 'İyi', categoryId: 'cat_bisiklet', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'photo-1534146789009-76ed5060ec70', days: 7, views: 312,
   },
   {
     id: 'prd_kamp', title: 'Kamp Çadırı 3 Kişilik + Uyku Tulumu',
     description: 'Su geçirmez 3 mevsim çadır ve -5 dereceye kadar uyku tulumu. Toplam 4 kez kullanıldı. Taşıma çantası ve kazık seti tam.',
-    price: 2750, condition: 'Yeni Gibi', categoryId: 'cat_spor', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'camptent', days: 12, views: 167,
+    price: 2750, condition: 'Yeni Gibi', categoryId: 'cat_spor', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'photo-1504280390367-361c6d9f38f4', days: 12, views: 167,
   },
   {
     id: 'prd_dumbell', title: 'Ayarlanabilir Dambıl Seti 2x24kg',
     description: 'Vidalı tip ayarlanabilir dambıl seti, toplam 48 kg. Pas yok. Ev spor salonu kuranlar için ideal. Elden teslim tercih edilir.',
-    price: 3900, condition: 'İyi', categoryId: 'cat_spor', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'dumbbells', days: 18, views: 134,
+    price: 3900, condition: 'İyi', categoryId: 'cat_spor', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'photo-1638536532686-d610adfc8e5c', days: 18, views: 134,
   },
   {
     id: 'prd_kitaplik', title: 'Bilim Kurgu Kitap Koleksiyonu — 32 Kitap',
     description: 'Asimov, Dick, Le Guin ve Herbert ağırlıklı 32 kitaplık koleksiyon. Çoğu ilk baskı değil ama hepsi sağlam ciltli. Toplu satılır, tek tek verilmez.',
-    price: 2400, condition: 'İyi', categoryId: 'cat_kitap', sellerId: 'usr_demo', city: 'Ankara', seed: 'scifibooks', days: 16, views: 221,
+    price: 2400, condition: 'İyi', categoryId: 'cat_kitap', sellerId: 'usr_demo', city: 'Ankara', seed: 'photo-1457369804613-52c61a468e7d', days: 16, views: 221,
   },
   {
     id: 'prd_mont', title: 'The North Face Kışlık Mont — L Beden',
     description: 'Su ve rüzgâr geçirmez, iç astarlı kışlık mont. İki kış giyildi, fermuarlar sorunsuz. Renk: lacivert.',
-    price: 4100, condition: 'İyi', categoryId: 'cat_erkek', sellerId: 'usr_can', city: 'Eskişehir', seed: 'winterjacket', days: 22, views: 98,
+    price: 4100, condition: 'İyi', categoryId: 'cat_erkek', sellerId: 'usr_can', city: 'Eskişehir', seed: 'photo-1624548140129-74786c5f1279', days: 22, views: 98,
   },
   {
     id: 'prd_canta', title: 'Deri Omuz Çantası — El Yapımı',
     description: 'Hakiki deri, el dikişi omuz çantası. Laptop bölmesi 14 inçe kadar uygun. Deri doğal patina yapmış, çok şık duruyor.',
-    price: 1850, condition: 'Yeni Gibi', categoryId: 'cat_ayakkabi', sellerId: 'usr_elif', city: 'İzmir', seed: 'leatherbag', days: 10, views: 189,
+    price: 1850, condition: 'Yeni Gibi', categoryId: 'cat_ayakkabi', sellerId: 'usr_elif', city: 'İzmir', seed: 'photo-1473188588951-666fce8e7c68', days: 10, views: 189,
   },
   {
     id: 'prd_elbise', title: 'Vintage İpek Elbise — S Beden',
     description: "90'lar vintage ipek elbise. Butik alım. Leke veya yırtık yok, kuru temizlemeden yeni çıktı.",
-    price: 1200, condition: 'Yeni Gibi', categoryId: 'cat_kadin', sellerId: 'usr_elif', city: 'İzmir', seed: 'silkdress', days: 28, views: 76,
+    price: 1200, condition: 'Yeni Gibi', categoryId: 'cat_kadin', sellerId: 'usr_elif', city: 'İzmir', seed: 'photo-1651047666890-8eab731ee345', days: 28, views: 76,
   },
   {
     id: 'prd_supurge', title: 'Dyson V11 Şarjlı Dikey Süpürge',
     description: 'Batarya süresi yaklaşık 45 dakika. Tüm aparatları ve duvar şarj ünitesi mevcut. Filtresi yeni yıkandı.',
-    price: 8900, condition: 'İyi', categoryId: 'cat_mutfak', sellerId: 'usr_demo', city: 'Ankara', seed: 'vacuum', days: 30, views: 254, isSold: true,
+    price: 8900, condition: 'İyi', categoryId: 'cat_mutfak', sellerId: 'usr_demo', city: 'Ankara', seed: 'photo-1527515637462-cff94eecc1ac', days: 30, views: 254, isSold: true,
   },
   {
     id: 'prd_otokoltuk', title: 'Bebek Oto Koltuğu 9-36 kg',
     description: 'ECE R44/04 sertifikalı, isofix uyumlu oto koltuğu. Kılıfı yıkandı. Kaza geçirmemiştir.',
-    price: 2200, condition: 'İyi', categoryId: 'cat_oto', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'carseat', days: 35, views: 88, isSold: true,
+    price: 2200, condition: 'İyi', categoryId: 'cat_oto', sellerId: 'usr_zeynep', city: 'Antalya', seed: 'photo-1516309229383-2001fee59b2b', days: 35, views: 88, isSold: true,
   },
 ]
 
@@ -269,7 +279,7 @@ const PRODUCTS: Product[] = PRODUCT_SPECS.map((spec) => ({
   condition: spec.condition,
   categoryId: spec.categoryId,
   sellerId: spec.sellerId,
-  images: [photo(spec.seed), photo(`${spec.seed}-b`)],
+  images: [photo(spec.seed)],
   city: spec.city,
   isSold: spec.isSold ?? false,
   isFeatured: spec.isFeatured ?? false,
@@ -342,7 +352,6 @@ export async function createSeedData(): Promise<SeedData> {
       role: spec.role,
       address: spec.city,
       bio: spec.bio,
-      avatar: `https://picsum.photos/seed/${spec.id}/200/200`,
       createdAt: ago(150),
     })),
   )

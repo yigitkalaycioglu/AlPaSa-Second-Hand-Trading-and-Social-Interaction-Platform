@@ -29,7 +29,7 @@ React 19 + TypeScript + Vite + Tailwind CSS v4 ile geliştirilmiş, **tamamen is
 
 | | |
 |---|---|
-| **Canlı sürüm** | _Netlify'a bağlandıktan sonra bu satıra adres eklenecek_ |
+| **Canlı sürüm** | https://alpasa.netlify.app/ |
 | **Kaynak kod** | https://github.com/yigitkalaycioglu/AlPaSa-Second-Hand-Trading-and-Social-Interaction-Platform |
 
 ### Demo hesapları
