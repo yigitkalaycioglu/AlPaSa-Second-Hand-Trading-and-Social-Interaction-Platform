@@ -42,7 +42,7 @@ export function SellerProfilePage() {
           Kullanıcı bulunamadı
         </h1>
         <Link to="/ilanlar" className="mt-6 inline-block">
-          <Button>Ilanlara dön</Button>
+          <Button>İlanlara dön</Button>
         </Link>
       </div>
     )
@@ -127,7 +127,7 @@ export function SellerProfilePage() {
           title="Aktif ilan yok"
           description={
             isSelf
-              ? 'Yeni bir ilan vererek baslayabilirsiniz.'
+              ? 'Yeni bir ilan vererek başlayabilirsiniz.'
               : 'Bu satıcının şu anda yayında olan ilanı bulunmuyor.'
           }
         />

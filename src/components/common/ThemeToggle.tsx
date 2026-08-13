@@ -9,7 +9,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Aydınlık temaya gec' : 'Karanlık temaya gec'}
+      aria-label={isDark ? 'Aydınlık temaya geç' : 'Karanlık temaya geç'}
       title={isDark ? 'Aydınlık tema' : 'Karanlık tema'}
       className="relative flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
     >

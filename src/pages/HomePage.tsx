@@ -84,7 +84,7 @@ export function HomePage() {
         <section className="py-16">
           <SectionHeading
             title="Kategorileri keşfet"
-            description="Aradığın ürünü kategoriler arasinda hızlıca bul."
+            description="Aradığın ürünü kategoriler arasında hızlıca bul."
             action={{ to: '/ilanlar', label: 'Tümünü gör' }}
           />
 
@@ -153,7 +153,7 @@ export function HomePage() {
 
                   <Link to={`/ilan/${mostFavorited.id}`} className="mt-7">
                     <Button size="lg">
-                      İlanı Incele
+                      İlanı İncele
                       <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
@@ -168,7 +168,7 @@ export function HomePage() {
           <section className="pb-16">
             <SectionHeading
               title="Öne çıkan ilanlar"
-              description="Editorlerin seçtiği, dikkat ceken firsatlar."
+              description="Editörlerin seçtiği, dikkat çeken fırsatlar."
             />
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {featured.map((product) => (
@@ -196,26 +196,26 @@ export function HomePage() {
         <section className="pb-20">
           <div className="rounded-3xl bg-slate-100 p-8 lg:p-12 dark:bg-slate-900">
             <h2 className="text-center text-2xl font-extrabold text-slate-900 lg:text-3xl dark:text-white">
-              Uc adımda satışa başla
+              Üç adımda satışa başla
             </h2>
             <div className="mt-10 grid gap-8 md:grid-cols-3">
               <Step
                 index={1}
                 icon={<PackagePlus className="h-6 w-6" />}
-                title="Ilanini oluştur"
-                description="Fotograflarini yükle, fiyatini belirle ve kategorisini seç. Tüm bunlar bir dakikadan kısa sürer."
+                title="İlanını oluştur"
+                description="Fotoğraflarını yükle, fiyatını belirle ve kategorisini seç. Tüm bunlar bir dakikadan kısa sürer."
               />
               <Step
                 index={2}
                 icon={<Search className="h-6 w-6" />}
-                title="Alicilar seni bulsun"
-                description="İlanın kategori agacinda ve aramalarda görünür. Favorilenen ilanlar öne çıkar."
+                title="Alıcılar seni bulsun"
+                description="İlanın kategori ağacında ve aramalarda görünür. Favorilenen ilanlar öne çıkar."
               />
               <Step
                 index={3}
                 icon={<ShieldCheck className="h-6 w-6" />}
-                title="Güvenle anlas"
-                description="Alicilarla platform üzerinden mesajlaş, detaylari konus, satışı tamamla."
+                title="Güvenle anlaş"
+                description="Alıcılarla platform üzerinden mesajlaş, detayları konuş, satışı tamamla."
               />
             </div>
           </div>

@@ -62,7 +62,7 @@ export function ProductDetailPage() {
   const product = productListItems.find((item) => item.id === id)
   const seller = product ? findUserById(product.sellerId) : undefined
 
-  // Görüntülenme sayacı: her ilan için oturumda bir kez artir.
+  // Görüntülenme sayacı: her ilan için oturumda bir kez artır.
   const countedRef = useRef<string | null>(null)
   useEffect(() => {
     if (!product || countedRef.current === product.id) return
@@ -75,10 +75,10 @@ export function ProductDetailPage() {
       <div className="mx-auto max-w-2xl px-4 py-24 text-center">
         <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">İlan bulunamadı</h1>
         <p className="mt-2 text-slate-500 dark:text-slate-400">
-          Bu ilan kaldirilmis veya adres hatalı olabilir.
+          Bu ilan kaldırılmış veya adres hatalı olabilir.
         </p>
         <Link to="/ilanlar" className="mt-6 inline-block">
-          <Button>Ilanlara dön</Button>
+          <Button>İlanlara dön</Button>
         </Link>
       </div>
     )
@@ -131,7 +131,7 @@ export function ProductDetailPage() {
         className="mb-5 inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 transition-colors hover:text-brand-600 dark:text-slate-400"
       >
         <ArrowLeft className="h-4 w-4" />
-        Ilanlara dön
+        İlanlara dön
       </Link>
 
       <nav aria-label="Kategori yolu" className="mb-5 flex flex-wrap items-center gap-1.5 text-sm">
@@ -364,7 +364,7 @@ export function ProductDetailPage() {
       >
         <ConfirmBody
           message={`"${product.title}" ilanını silmek istediğinize emin misiniz?`}
-          detail="Bu işlem geri alınamaz. Ilana ait favori kayıtları da silinir."
+          detail="Bu işlem geri alınamaz. İlana ait favori kayıtları da silinir."
           confirmLabel="Evet, sil"
           onConfirm={handleDelete}
           onCancel={() => setConfirmOpen(false)}
@@ -376,7 +376,7 @@ export function ProductDetailPage() {
         open={messageOpen}
         onClose={() => setMessageOpen(false)}
         title="Satıcıya mesaj gönder"
-        description={seller ? `Alici: ${seller.firstName} ${seller.lastName}` : undefined}
+        description={seller ? `Alıcı: ${seller.firstName} ${seller.lastName}` : undefined}
         footer={
           <>
             <Button variant="outline" onClick={() => setMessageOpen(false)}>
@@ -400,7 +400,7 @@ export function ProductDetailPage() {
             rows={5}
             value={messageText}
             onChange={(event) => setMessageText(event.target.value)}
-            placeholder="Merhaba, ürün hala satılık mi? Pazarlik payi var mi?"
+            placeholder="Merhaba, ürün hâlâ satılık mı? Pazarlık payı var mı?"
             maxLength={1000}
             hint={`${messageText.length}/1000`}
           />

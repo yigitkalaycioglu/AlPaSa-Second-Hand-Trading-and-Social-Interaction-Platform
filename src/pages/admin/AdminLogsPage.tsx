@@ -9,9 +9,9 @@ export function AdminLogsPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <header className="mb-8">
-        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">İşlem Gunlugu</h1>
+        <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">İşlem Günlüğü</h1>
         <p className="mt-2 text-slate-500 dark:text-slate-400">
-          Yoneticilerin yaptigi degisikliklerin kaydı (son 200 işlem).
+          Yöneticilerin yaptığı değişikliklerin kaydı (son 200 işlem).
         </p>
       </header>
 
@@ -19,7 +19,7 @@ export function AdminLogsPage() {
         <EmptyState
           icon={<ScrollText className="h-8 w-8" />}
           title="Henüz kayıt yok"
-          description="Yönetici işlemleri gerceklestikce burada listelenecek."
+          description="Yönetici işlemleri gerçekleştikçe burada listelenecek."
         />
       ) : (
         <ol className="relative space-y-1 border-l-2 border-slate-200 pl-6 dark:border-slate-800">

@@ -159,8 +159,8 @@ export function ProfilePage() {
             value={profile.bio}
             onChange={(event) => setProfile({ ...profile, bio: event.target.value })}
             maxLength={300}
-            hint={`${profile.bio.length}/300 · Alicilarin sizi taniyabilmesi için kısa bir tanitim.`}
-            placeholder="Ne tur ürünler satiyorsunuz?"
+            hint={`${profile.bio.length}/300 · Alıcıların sizi tanıyabilmesi için kısa bir tanıtım.`}
+            placeholder="Ne tür ürünler satıyorsunuz?"
           />
         </div>
 
@@ -219,7 +219,7 @@ export function ProfilePage() {
       <section className="card-surface p-6">
         <h2 className="mb-2 text-lg font-bold text-slate-800 dark:text-slate-100">Veri yönetimi</h2>
         <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-          Bu uygulamanin sunucusu yoktur; tüm veriler tarayıcınızın localStorage alanında tutulur.
+          Bu uygulamanın sunucusu yoktur; tüm veriler tarayıcınızın localStorage alanında tutulur.
           Şu anda <strong className="text-slate-700 dark:text-slate-200">{formatBytes(storageUsage)}</strong> yer
           kullanılıyor.
         </p>
@@ -229,8 +229,8 @@ export function ProfilePage() {
             Demo verilerini sıfırla
           </p>
           <p className="mt-1 text-sm text-amber-700 dark:text-amber-400/80">
-            Tüm ilanlar, kullanıcılar, mesajlar ve favoriler silinip baslangictaki örnek veriler
-            geri yüklenir. Olusturdugunuz hesap da silinir.
+            Tüm ilanlar, kullanıcılar, mesajlar ve favoriler silinip başlangıçtaki örnek veriler
+            geri yüklenir. Oluşturduğunuz hesap da silinir.
           </p>
           <Button variant="danger" size="sm" className="mt-4" onClick={() => setResetOpen(true)}>
             <Trash2 className="h-3.5 w-3.5" />

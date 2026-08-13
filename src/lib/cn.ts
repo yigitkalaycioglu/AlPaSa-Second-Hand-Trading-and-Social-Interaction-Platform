@@ -2,7 +2,7 @@ type ClassValue = string | number | bigint | boolean | null | undefined | ClassV
 
 /**
  * Koşullu sınıf adlarını birleştirir.
- * (clsx'in ihtiyaç duydugumuz kadarlık, bağımlılıksız karşılığı.)
+ * (clsx'in ihtiyaç duyduğumuz kadarlık, bağımlılıksız karşılığı.)
  */
 export function cn(...inputs: ClassValue[]): string {
   const output: string[] = []

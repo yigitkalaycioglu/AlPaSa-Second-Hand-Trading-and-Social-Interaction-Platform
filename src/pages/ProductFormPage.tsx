@@ -51,7 +51,7 @@ export function ProductFormPage() {
       return
     }
 
-    // Baskasinin ilanını duzenlemeye çalışan kullanıcıyı geri gönder.
+    // Başkasının ilanını düzenlemeye çalışan kullanıcıyı geri gönder.
     if (product.sellerId !== currentUser?.id && !isAdmin) {
       notify('Bu ilanı düzenleme yetkiniz yok.', 'error')
       navigate(`/ilan/${id}`, { replace: true })
@@ -148,7 +148,7 @@ export function ProductFormPage() {
       </h1>
       <p className="mt-2 text-slate-500 dark:text-slate-400">
         {isEdit
-          ? 'Degisiklikleriniz kaydedildikten sonra ilan sayfasinda görünür.'
+          ? 'Değişiklikleriniz kaydedildikten sonra ilan sayfasında görünür.'
           : 'Ürününüzü iyi anlatan bir başlık ve net fotoğraflar, satışı hızlandırır.'}
       </p>
 
@@ -239,7 +239,7 @@ export function ProductFormPage() {
                   Bu ürün satıldı
                 </span>
                 <span className="block text-sm text-slate-500 dark:text-slate-400">
-                  Isaretlerseniz ilan "Satıldı" rozetiyle gösterilir ve varsayılan listelemede
+                  İşaretlerseniz ilan "Satıldı" rozetiyle gösterilir ve varsayılan listelemede
                   gizlenir.
                 </span>
               </span>

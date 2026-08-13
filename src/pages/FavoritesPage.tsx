@@ -36,7 +36,7 @@ export function FavoritesPage() {
         <EmptyState
           icon={<HeartOff className="h-8 w-8" />}
           title="Henüz favori ilanınız yok"
-          description="Ilanlarda kalp simgesine dokunarak beğendiklerinizi buraya ekleyebilirsiniz."
+          description="İlanlarda kalp simgesine dokunarak beğendiklerinizi buraya ekleyebilirsiniz."
           action={
             <Link to="/ilanlar">
               <Button>

@@ -1,4 +1,4 @@
-/** Alan modellerinin tek giriş noktasi. */
+/** Alan modellerinin tek giriş noktası. */
 
 export type {
   User,

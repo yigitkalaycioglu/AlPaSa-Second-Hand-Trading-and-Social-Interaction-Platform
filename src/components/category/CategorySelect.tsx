@@ -11,7 +11,7 @@ interface CategorySelectProps {
   error?: string
   hint?: string
   required?: boolean
-  /** Bu kimlige sahip kategori ve alt dalları listelenmez (kendi altina taşıma engeli). */
+  /** Bu kimliğe sahip kategori ve alt dalları listelenmez (kendi altına taşıma engeli). */
   excludeId?: string
   placeholder?: string
   allowEmpty?: boolean
@@ -34,7 +34,7 @@ export function CategorySelect({
     const flat = flattenTree(tree)
     if (!excludeId) return flat
 
-    // Haric tutulan dugum ve tüm torunlarini ele.
+    // Hariç tutulan düğüm ve tüm torunlarını ele.
     const excluded = new Set<string>()
     const collect = (nodes: CategoryNode[]) => {
       for (const node of nodes) {

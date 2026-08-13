@@ -54,7 +54,7 @@ function CategoryBranch({
   selectedId: string | null
   onSelect: (id: string) => void
 }) {
-  // Seçili dal aciksa baslasin ki kullanıcı nerede olduğunu gorsun.
+  // Seçili dal açıksa başlasın ki kullanıcı nerede olduğunu görsün.
   const [expanded, setExpanded] = useState(() => containsId(node, selectedId))
   const hasChildren = node.children.length > 0
   const isSelected = node.id === selectedId
@@ -113,7 +113,7 @@ function CategoryBranch({
   )
 }
 
-/** Seçili kategori bu dalın altinda mi? (başlangıçta açık gelmesi için) */
+/** Seçili kategori bu dalın altında mı? (başlangıçta açık gelmesi için) */
 function containsId(node: CategoryNode, id: string | null): boolean {
   if (!id) return false
   if (node.id === id) return true

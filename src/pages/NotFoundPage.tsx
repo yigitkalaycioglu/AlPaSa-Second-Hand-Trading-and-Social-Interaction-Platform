@@ -12,7 +12,7 @@ export function NotFoundPage() {
         Bu sayfa bulunamadı
       </h1>
       <p className="mt-2 text-slate-500 dark:text-slate-400">
-        Aradığınız sayfa tasinmis, silinmiş veya adresi yanlış yazilmis olabilir.
+        Aradığınız sayfa taşınmış, silinmiş veya adresi yanlış yazılmış olabilir.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link to="/">
@@ -24,7 +24,7 @@ export function NotFoundPage() {
         <Link to="/ilanlar">
           <Button variant="outline">
             <Search className="h-4 w-4" />
-            Ilanlara göz at
+            İlanlara göz at
           </Button>
         </Link>
       </div>

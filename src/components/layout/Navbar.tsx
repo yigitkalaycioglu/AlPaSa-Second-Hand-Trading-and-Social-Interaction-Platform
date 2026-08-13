@@ -37,7 +37,7 @@ export function Navbar() {
     ? favorites.filter((favorite) => favorite.userId === currentUser.id).length
     : 0
 
-  // Disari tıklanınca kullanıcı menüsünü kapat
+  // Dışarı tıklanınca kullanıcı menüsünü kapat
   useEffect(() => {
     if (!menuOpen) return
     const onClick = (event: MouseEvent) => {
@@ -60,7 +60,7 @@ export function Navbar() {
     logout()
     setMenuOpen(false)
     setMobileOpen(false)
-    notify('Çıkış yapıldı. Görüşmek uzere!', 'info')
+    notify('Çıkış yapıldı. Görüşmek üzere!', 'info')
     navigate('/')
   }
 

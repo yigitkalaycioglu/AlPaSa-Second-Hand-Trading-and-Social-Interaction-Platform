@@ -7,7 +7,7 @@ interface PaginationProps {
   onChange: (page: number) => void
 }
 
-/** Çok sayfali listelerde 1 ... 4 5 6 ... 20 şeklinde kisaltilmis sayfalama. */
+/** Çok sayfalı listelerde 1 ... 4 5 6 ... 20 şeklinde kısaltılmış sayfalama. */
 function buildPages(page: number, totalPages: number): (number | 'gap')[] {
   if (totalPages <= 7) {
     return Array.from({ length: totalPages }, (_, index) => index + 1)

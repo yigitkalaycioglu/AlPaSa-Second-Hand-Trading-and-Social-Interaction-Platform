@@ -3,7 +3,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { useStore } from '@/hooks/useStore'
 import { PageLoader } from '@/components/ui/Feedback'
 
-/** Giriş yapmamis kullanıcıyı, dönüş adresini koruyarak giriş sayfasina yollar. */
+/** Giriş yapmamış kullanıcıyı, dönüş adresini koruyarak giriş sayfasına yollar. */
 export function ProtectedRoute() {
   const { isAuthenticated } = useAuth()
   const { loading } = useStore()
@@ -16,7 +16,7 @@ export function ProtectedRoute() {
   return <Outlet />
 }
 
-/** Yalnızca Admin rolundeki kullanıcılara açık rotalar. */
+/** Yalnızca Admin rolündeki kullanıcılara açık rotalar. */
 export function AdminRoute() {
   const { isAuthenticated, isAdmin } = useAuth()
   const { loading } = useStore()

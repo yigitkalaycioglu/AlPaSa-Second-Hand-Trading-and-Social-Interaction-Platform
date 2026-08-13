@@ -12,10 +12,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     Oturum SENKRON geri yüklenir.
 
     Bunu bir useEffect içinde yapmak, ilk render'da isAuthenticated'in false
-    gorunmesine ve ProtectedRoute'un kullanıcıyı daha effect calismadan giriş
-    sayfasina yonlendirmesine yol aciyordu (korumalı bir sayfada F5'e basmak
-    oturumu dusuruyordu). Veriler bootstrap sırasında hazır oldugundan
-    localStorage'i doğrudan ilk değer olarak okuyabiliyoruz.
+    görünmesine ve ProtectedRoute'un kullanıcıyı daha effect çalışmadan giriş
+    sayfasına yönlendirmesine yol açıyordu (korumalı bir sayfada F5'e basmak
+    oturumu düşürüyordu). Veriler bootstrap sırasında hazır olduğundan
+    localStorage'ı doğrudan ilk değer olarak okuyabiliyoruz.
   */
   const [currentUserId, setCurrentUserId] = useState<string | null>(() =>
     read<string | null>(STORAGE_KEYS.session, null),

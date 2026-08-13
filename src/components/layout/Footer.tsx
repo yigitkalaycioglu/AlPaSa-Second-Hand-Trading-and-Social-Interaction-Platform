@@ -20,8 +20,8 @@ export function Footer() {
               <span className="text-lg font-extrabold text-slate-800 dark:text-white">AlPaSa</span>
             </div>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-              Kullanmadığın eşyaları değerlendirebileceğin, ihtiyacın olani uygun fiyata
-              bulabilecegin ve satıcılarla doğrudan iletisime gecebilecegin ikinci el pazar yeri.
+              Kullanmadığın eşyaları değerlendirebileceğin, ihtiyacın olanı uygun fiyata
+              bulabileceğin ve satıcılarla doğrudan iletişime geçebileceğin ikinci el pazar yeri.
             </p>
             <a
               href={REPO_URL}
@@ -40,7 +40,7 @@ export function Footer() {
               <FooterLink to="/ilanlar">Tüm İlanlar</FooterLink>
               <FooterLink to="/ilan/yeni">İlan Ver</FooterLink>
               <FooterLink to="/favorilerim">Favorilerim</FooterLink>
-              <FooterLink to="/mesajlar">Mesajlarim</FooterLink>
+              <FooterLink to="/mesajlar">Mesajlarım</FooterLink>
             </ul>
           </div>
 

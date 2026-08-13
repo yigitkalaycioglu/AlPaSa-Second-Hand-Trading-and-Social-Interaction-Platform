@@ -14,8 +14,8 @@ export function MessagesPage() {
   const { getConversations, markConversationRead, sendMessage, products } = useStore()
 
   /**
-   * undefined = kullanıcı henüz seçim yapmadi (en yeni konuşma açılır),
-   * null      = mobilde listeye geri donuldu,
+   * undefined = kullanıcı henüz seçim yapmadı (en yeni konuşma açılır),
+   * null      = mobilde listeye geri dönüldü,
    * string    = açıkça seçilen konuşma.
    */
   const [selection, setSelection] = useState<string | null | undefined>(undefined)
@@ -39,7 +39,7 @@ export function MessagesPage() {
     }
   }, [currentUser, activePeer, active, markConversationRead])
 
-  // Yeni mesajda en alta kaydir.
+  // Yeni mesajda en alta kaydır.
   useEffect(() => {
     threadEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [active?.messages.length])
@@ -203,7 +203,7 @@ export function MessagesPage() {
               <input
                 value={draft}
                 onChange={(event) => setDraft(event.target.value)}
-                placeholder="Mesajinizi yazın..."
+                placeholder="Mesajınızı yazın..."
                 aria-label="Mesaj"
                 maxLength={1000}
                 className="h-11 flex-1 rounded-xl border border-slate-300 px-4 text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"

@@ -22,7 +22,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     try {
       localStorage.setItem(STORAGE_KEYS.theme, theme)
     } catch {
-      /* depolama kapaliysa tema yine de bu oturumda çalışır */
+      /* depolama kapalıysa tema yine de bu oturumda çalışır */
     }
   }, [theme])
 

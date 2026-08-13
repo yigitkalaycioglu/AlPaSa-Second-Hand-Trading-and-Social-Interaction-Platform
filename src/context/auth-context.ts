@@ -5,7 +5,7 @@ export interface AuthContextValue {
   currentUser: PublicUser | null
   isAuthenticated: boolean
   isAdmin: boolean
-  /** Giriş/kayıt istegi islenirken true. */
+  /** Giriş/kayıt isteği işlenirken true. */
   pending: boolean
   login: (credentials: LoginCredentials) => Promise<void>
   register: (payload: RegisterPayload) => Promise<void>
@@ -14,7 +14,7 @@ export interface AuthContextValue {
   changePassword: (currentPassword: string, nextPassword: string) => Promise<void>
 }
 
-/** Kimlik doğrulama işlemleri kullanıcıya gosterilebilir mesajla başarısız olur. */
+/** Kimlik doğrulama işlemleri kullanıcıya gösterilebilir mesajla başarısız olur. */
 export class AuthError extends Error {
   constructor(message: string) {
     super(message)

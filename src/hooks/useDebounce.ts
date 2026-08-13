@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-/** Hızlı degisen bir değeri geciktirir (arama kutusunda her tusta filtrelememek için). */
+/** Hızlı değişen bir değeri geciktirir (arama kutusunda her tuşta filtrelememek için). */
 export function useDebounce<T>(value: T, delay = 300): T {
   const [debounced, setDebounced] = useState(value)
 

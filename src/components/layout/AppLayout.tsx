@@ -5,7 +5,7 @@ import { PageLoader, Toaster } from '@/components/ui/Feedback'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 
-/** Rota değiştiğinde sayfayı basa sarar. */
+/** Rota değiştiğinde sayfayı başa sarar. */
 function ScrollToTop() {
   const { pathname } = useLocation()
 

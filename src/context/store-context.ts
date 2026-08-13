@@ -29,11 +29,11 @@ export interface StoreContextValue {
   messages: Message[]
   adminLogs: AdminLog[]
 
-  /** İlan sayıları hesaplanmis kategori ağacı. */
+  /** İlan sayıları hesaplanmış kategori ağacı. */
   categoryTree: CategoryNode[]
   /** Satıcı adı, kategori adı ve favori sayısı çözülmüş ilan listesi. */
   productListItems: ProductListItem[]
-  /** Ilanlarda geçen benzersiz şehirler (filtre açılır listesi için). */
+  /** İlanlarda geçen benzersiz şehirler (filtre açılır listesi için). */
   cities: string[]
   stats: Stats
 

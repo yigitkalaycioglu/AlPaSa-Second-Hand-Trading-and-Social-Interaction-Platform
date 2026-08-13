@@ -41,7 +41,7 @@ export function LoginPage() {
       navigate(from, { replace: true })
     } catch (error) {
       const message =
-        error instanceof AuthError ? error.message : 'Giriş yapilamadi, tekrar deneyin.'
+        error instanceof AuthError ? error.message : 'Giriş yapılamadı, tekrar deneyin.'
       setErrors({ form: message })
     }
   }
@@ -61,7 +61,7 @@ export function LoginPage() {
           Tekrar hoş geldiniz
         </h1>
         <p className="mt-2 text-slate-500 dark:text-slate-400">
-          Hesabiniza giriş yaparak ilan verebilir ve mesajlaşabilirsiniz.
+          Hesabınıza giriş yaparak ilan verebilir ve mesajlaşabilirsiniz.
         </p>
       </div>
 

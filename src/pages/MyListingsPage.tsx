@@ -14,7 +14,7 @@ import { SmartImage } from '@/components/ui/SmartImage'
 
 type Tab = 'all' | 'active' | 'sold'
 
-/** Kullanıcının kendi ilanlarini yönettiği sayfa - SILME işlemi burada. */
+/** Kullanıcının kendi ilanlarını yönettiği sayfa — SİLME işlemi burada. */
 export function MyListingsPage() {
   const { currentUser } = useAuth()
   const { productListItems, deleteProduct } = useStore()
@@ -89,7 +89,7 @@ export function MyListingsPage() {
         <EmptyState
           icon={<Store className="h-8 w-8" />}
           title={tab === 'all' ? 'Henüz ilanınız yok' : 'Bu sekmede ilan yok'}
-          description="Kullanmadiginiz eşyaları satışa cikararak başlayın."
+          description="Kullanmadığınız eşyaları satışa çıkararak başlayın."
           action={
             <Link to="/ilan/yeni">
               <Button>

@@ -5,15 +5,15 @@ import { createPlaceholder } from '@/lib/placeholder'
 interface SmartImageProps {
   src?: string
   alt: string
-  /** Görsel yuklenemezse bu metinden degradeli yer tutucu uretilir. */
+  /** Görsel yüklenemezse bu metinden degradeli yer tutucu üretilir. */
   fallbackSeed: string
   className?: string
   loading?: 'lazy' | 'eager'
 }
 
 /**
- * Kaynak adres boş ya da yüklenemez oldugunda, metinden türetilmiş
- * SVG yer tutucuya dusen görsel. Boylece kirik resim ikonu hic görünmez.
+ * Kaynak adres boş ya da yüklenemez olduğunda, metinden türetilmiş
+ * SVG yer tutucuya düşen görsel. Böylece kırık resim ikonu hiç görünmez.
  */
 export function SmartImage({ src, alt, fallbackSeed, className, loading = 'lazy' }: SmartImageProps) {
   const placeholder = useMemo(() => createPlaceholder(fallbackSeed), [fallbackSeed])
@@ -22,7 +22,7 @@ export function SmartImage({ src, alt, fallbackSeed, className, loading = 'lazy'
   const [loaded, setLoaded] = useState(false)
   const [renderedSrc, setRenderedSrc] = useState(src)
 
-  // src değiştiğinde (galeride gezinme, liste sanallastirma) durumu render
+  // src değiştiğinde (galeride gezinme, liste sanallaştırma) durumu render
   // sırasında sıfırla - useEffect ile yapmak fazladan bir render turu maliyeti
   // getirir ve bu, React'in "prop değişince state'i ayarla" önerdiği desendir.
   if (src !== renderedSrc) {

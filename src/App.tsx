@@ -24,7 +24,7 @@ import { AdminUsersPage } from '@/pages/admin/AdminUsersPage'
 import { AdminLogsPage } from '@/pages/admin/AdminLogsPage'
 
 /*
-  Saglayici sırası önemlidir:
+  Sağlayıcı sırası önemlidir:
   Theme -> Toast -> Store -> Auth
   Store, kota hatalarını bildirmek için Toast'a; Auth ise kullanıcı
   kayıtlarını okumak için Store'a ihtiyaç duyar.

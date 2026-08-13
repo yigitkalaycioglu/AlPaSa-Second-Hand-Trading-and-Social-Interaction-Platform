@@ -14,7 +14,7 @@ import { CategorySelect } from '@/components/category/CategorySelect'
 
 const EMPTY_FORM: CategoryFormValues = { name: '', description: '', parentId: null }
 
-/** Kategori agacinin tam CRUD yönetimi (yalnızca Admin). */
+/** Kategori ağacının tam CRUD yönetimi (yalnızca Admin). */
 export function AdminCategoriesPage() {
   const { currentUser } = useAuth()
   const { categoryTree, addCategory, updateCategory, deleteCategory } = useStore()
@@ -141,7 +141,7 @@ export function AdminCategoriesPage() {
             onChange={(event) => setValues({ ...values, description: event.target.value })}
             error={errors.description}
             maxLength={200}
-            placeholder="Bu kategoride ne tur ürünler yer alir?"
+            placeholder="Bu kategoride ne tür ürünler yer alır?"
           />
 
           <CategorySelect
@@ -151,7 +151,7 @@ export function AdminCategoriesPage() {
             label="Üst kategori"
             placeholder="Ana kategori (üst yok)"
             excludeId={editingId ?? undefined}
-            hint="Bir kategori kendi alt kategorisinin altina taşınamaz."
+            hint="Bir kategori kendi alt kategorisinin altına taşınamaz."
           />
 
           <div className="flex justify-end gap-3 pt-2">
@@ -239,7 +239,7 @@ function CategoryRow({
           <button
             type="button"
             onClick={() => onAddChild(node.id)}
-            aria-label={`${node.name} altina kategori ekle`}
+            aria-label={`${node.name} altına kategori ekle`}
             title="Alt kategori ekle"
             className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-brand-50 hover:text-brand-600 dark:hover:bg-brand-500/10"
           >

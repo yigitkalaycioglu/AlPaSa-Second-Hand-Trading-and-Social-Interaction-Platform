@@ -61,7 +61,7 @@ export function AdminUsersPage() {
       <header className="mb-8">
         <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">Kullanıcılar</h1>
         <p className="mt-2 text-slate-500 dark:text-slate-400">
-          {users.length} kayıtlı üye. Rolleri değiştirin veya hesapları kaldirin.
+          {users.length} kayıtlı üye. Rolleri değiştirin veya hesapları kaldırın.
         </p>
       </header>
 

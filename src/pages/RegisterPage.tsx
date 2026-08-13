@@ -65,7 +65,7 @@ export function RegisterPage() {
       navigate('/', { replace: true })
     } catch (error) {
       const message =
-        error instanceof AuthError ? error.message : 'Kayıt tamamlanamadi, tekrar deneyin.'
+        error instanceof AuthError ? error.message : 'Kayıt tamamlanamadı, tekrar deneyin.'
       setErrors({ form: message })
     }
   }
@@ -130,7 +130,7 @@ export function RegisterPage() {
           value={values.password}
           onChange={(event) => patch({ password: event.target.value })}
           error={errors.password}
-          hint="En az 6 karakter, bir harf ve bir rakam icermeli."
+          hint="En az 6 karakter, bir harf ve bir rakam içermeli."
           icon={<KeyRound className="h-4 w-4" />}
           autoComplete="new-password"
           required
@@ -154,13 +154,13 @@ export function RegisterPage() {
         <p className="text-center text-sm text-slate-500 dark:text-slate-400">
           Zaten hesabınız var mi?{' '}
           <Link to="/giris" className="font-semibold text-brand-600 hover:underline dark:text-brand-400">
-            Giriş yapin
+            Giriş yapın
           </Link>
         </p>
       </form>
 
       <p className="mt-5 text-center text-xs leading-relaxed text-slate-400">
-        Bu bir demo uygulamadir. Verileriniz sunucuya gönderilmez, yalnızca bu tarayıcının
+        Bu bir demo uygulamadır. Verileriniz sunucuya gönderilmez, yalnızca bu tarayıcının
         localStorage alanında saklanır.
       </p>
     </div>

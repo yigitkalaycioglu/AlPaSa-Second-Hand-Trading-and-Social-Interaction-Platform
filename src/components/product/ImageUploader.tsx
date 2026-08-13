@@ -10,8 +10,8 @@ interface ImageUploaderProps {
 }
 
 /**
- * Surukle-bırak destekli görsel yükleyici.
- * Görseller küçültülüp base64 olarak saklanır (backend olmadigi için).
+ * Sürükle-bırak destekli görsel yükleyici.
+ * Görseller küçültülüp base64 olarak saklanır (backend olmadığı için).
  */
 export function ImageUploader({ images, onChange }: ImageUploaderProps) {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -46,7 +46,7 @@ export function ImageUploader({ images, onChange }: ImageUploaderProps) {
     onChange(images.filter((_, i) => i !== index))
   }
 
-  /** Seçilen görseli kapak yapar (ilk siraya taşır). */
+  /** Seçilen görseli kapak yapar (ilk sıraya taşır). */
   const makeCover = (index: number) => {
     if (index === 0) return
     const next = [...images]
@@ -143,7 +143,7 @@ export function ImageUploader({ images, onChange }: ImageUploaderProps) {
             <>
               <ImagePlus className="h-7 w-7 text-slate-400" />
               <p className="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">
-                Görsel seçmek için tiklayin veya surukleyip bırakın
+                Görsel seçmek için tıklayın veya sürükleyip bırakın
               </p>
               <p className="mt-1 text-xs text-slate-400">
                 JPEG, PNG, WebP · en fazla {remaining} görsel daha · otomatik küçültülür

@@ -80,7 +80,7 @@ export function AdminDashboardPage() {
         <QuickLink
           to="/yonetim/gunluk"
           icon={<ScrollText className="h-5 w-5" />}
-          title="İşlem gunlugu"
+          title="İşlem günlüğü"
           description={`${adminLogs.length} kayıt`}
         />
       </div>

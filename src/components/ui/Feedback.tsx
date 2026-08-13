@@ -26,7 +26,7 @@ const TOAST_STYLES: Record<ToastVariant, { icon: ReactNode; className: string }>
   },
 }
 
-/** Sağ üst kosede yığılan bildirimler. */
+/** Sağ üst köşede yığılan bildirimler. */
 export function Toaster() {
   const { toasts, dismiss } = useToast()
 
@@ -107,7 +107,7 @@ export function PageLoader({ label = 'Yükleniyor...' }: { label?: string }) {
   )
 }
 
-/** İçerik yuklenirken gösterilen parlayan yer tutucu. */
+/** İçerik yüklenirken gösterilen parlayan yer tutucu. */
 export function Skeleton({ className }: { className?: string }) {
   return (
     <div
@@ -145,7 +145,7 @@ interface ConfirmBodyProps {
   destructive?: boolean
 }
 
-/** Modal içine yerleştirilecek onay govdesi + butonları. */
+/** Modal içine yerleştirilecek onay gövdesi + butonları. */
 export function ConfirmBody({
   message,
   detail,
