@@ -4,7 +4,7 @@ Al, Pazarla, Sat. Kullanılmayan eşyaların satışa çıkarıldığı, ilanlar
 
 React 19, TypeScript, Vite ve Tailwind CSS v4 ile yazılmış tek sayfa bir uygulama. Backend yok, bütün veriler tarayıcının `localStorage` alanında tutuluyor. Bu yüzden kurulum, veritabanı ya da sunucu gerektirmiyor.
 
-Canlı sürüm: https://alpasa.netlify.app/
+Canlı sürüm: https://yigitkalaycioglu.github.io/AlPaSa-Second-Hand-Trading-and-Social-Interaction-Platform/
 
 <p align="center">
   <img src="docs/screenshots/01-anasayfa.png" alt="AlPaSa ana sayfa" width="880">
@@ -99,7 +99,7 @@ src/
   lib/          localStorage katmanı, demo veri, parola özetleme, görsel küçültme, filtreler
   pages/        sayfalar, admin/ altında yönetici sayfaları
 docs/screenshots/
-netlify.toml
+.github/workflows/deploy-pages.yml
 ```
 
 ## Teknik notlar
@@ -116,9 +116,11 @@ Her koleksiyon (ilanlar, mesajlar, favoriler...) ayrı bir `localStorage` anahta
 
 Kategori ağacında bir kategori kendi alt kategorisinin altına taşınamıyor, alt kategorisi ya da ilanı olan bir kategori de silinemiyor.
 
-## Netlify
+## Yayın (GitHub Pages)
 
-Repodaki `netlify.toml` derleme komutunu (`npm run build`) ve yayın klasörünü (`dist`) tanımlıyor, ek ayar gerekmiyor. Aynı dosya `/ilanlar` gibi adreslerin doğrudan açılabilmesi için SPA yönlendirmesini, statik dosyalar için önbellek başlıklarını ve birkaç temel güvenlik başlığını da ekliyor.
+`main` dalına her gönderimde `.github/workflows/deploy-pages.yml` uygulamayı derleyip GitHub Pages'e yayınlıyor. Site depo adının altında açıldığı için derlemede `BASE_PATH` ortam değişkeniyle Vite'ın `base` ayarı ve React Router'ın `basename` değeri bu yola göre ayarlanıyor. `/ilanlar` gibi adreslerin doğrudan açılabilmesi için derleme çıktısındaki `index.html`, `404.html` olarak da kopyalanıyor.
+
+Yerelde `npm run dev` ile ya da `npm run build && npm run preview` ile kök adreste çalışır.
 
 ## Bilinen sınırlar
 

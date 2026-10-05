@@ -35,7 +35,7 @@ export default function App() {
       <ToastProvider>
         <StoreProvider>
           <AuthProvider>
-            <BrowserRouter>
+            <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/+$/, '') || '/'}>
               <Routes>
                 <Route element={<AppLayout />}>
                   {/* --- Herkese açık --- */}

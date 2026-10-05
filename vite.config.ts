@@ -5,6 +5,8 @@ import path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages'te depo adının altında yayınlanır (ör. /AlPaSa-.../); yerelde '/'
+  base: process.env.BASE_PATH || '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
