@@ -86,6 +86,7 @@ npm run build       # tip kontrolü ve üretim derlemesi (dist/)
 npm run preview     # derlenmiş sürümü yerelde açar
 npm run lint
 npm run typecheck
+npm test            # filtreleme, arama ve kategori ağacı testleri
 ```
 
 ## Klasör yapısı
