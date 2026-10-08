@@ -29,6 +29,8 @@ function normalize(value: string): string {
       .normalize('NFD')
       // Birleşik aksan işaretlerini (U+0300-U+036F) at: "sarj" ile "şarj" eşleşsin.
       .replace(/[̀-ͯ]/g, '')
+      // "ı" ayrışan bir harf değil, ayrıca eşlenmeli: "kis" ile "kış" eşleşsin.
+      .replace(/ı/g, 'i')
   )
 }
 
